@@ -40,3 +40,19 @@
 .floating-navbar ul li a:hover {
     color: #f39c12;
 }
+
+
+.footer {
+    position: relative;
+    top: 20px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 14px;
+    z-index: 9999;
+  }
+  
