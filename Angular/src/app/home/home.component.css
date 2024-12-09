@@ -1,6 +1,6 @@
 
 .background-video {
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
@@ -10,7 +10,7 @@
 }
 
 .body{
-    margin-top: 800px;
+    margin-top: 30px;
 }
 
 .popular-games-bar {
@@ -36,7 +36,7 @@
     overflow-x: auto;
     gap: 50px;
     padding: 20px;
-    margin-top: 40px; 
+    margin-top: 30px; 
     scroll-snap-type: x mandatory;  
 }
 
@@ -47,5 +47,11 @@
     background-color: #ddd;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    cursor: pointer;
+    transition: transform 0.2s ease;
 }
+
+.game-card:hover {
+    transform: scale(1.05);
+  }
 
