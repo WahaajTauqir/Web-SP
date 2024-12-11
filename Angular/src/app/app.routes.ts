@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { FaqComponent } from './faq/faq.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { PlayComponent } from './play/play.component';
-import { NewsWireComponent } from './news-wire/news-wire.component';
 import { GamePlayScreenComponent } from './game-play-screen/game-play-screen.component';
+import { ProfileComponent } from './profile/profile.component';
+import { UploadComponent } from './upload/upload.component';
 
 export const routes: Routes = [
     {
@@ -17,10 +17,6 @@ export const routes: Routes = [
         component: HomeComponent
     },
     {
-        path: 'faq',
-        component: FaqComponent
-    },
-    {
         path: 'about-us',
         component: AboutUsComponent
     },
@@ -29,11 +25,19 @@ export const routes: Routes = [
         component: PlayComponent
     },
     {
-        path: 'news-wire',
-        component: NewsWireComponent
-    },
-    {
         path: 'game-play-screen',
         component: GamePlayScreenComponent
+    },
+    {
+        path: 'profile',
+        component: ProfileComponent
+    },
+    {
+        path: 'login-signup',
+        component: ProfileComponent
+    },
+    {
+        path: 'upload',
+        component: UploadComponent
     }
 ];
