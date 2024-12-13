@@ -4,7 +4,6 @@ import { PlayComponent } from './play/play.component';
 import { GamePlayScreenComponent } from './game-play-screen/game-play-screen.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UploadComponent } from './upload/upload.component';
-import { LoginSignupComponent } from './login-signup/login-signup.component';
 
 export const routes: Routes = [
     {
@@ -30,7 +29,7 @@ export const routes: Routes = [
     },
     {
         path: 'login-signup',
-        component: LoginSignupComponent
+        component: ProfileComponent
     },
     {
         path: 'upload',
