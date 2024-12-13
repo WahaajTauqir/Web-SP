@@ -3,12 +3,13 @@
       <h2>Sign Up</h2>
       <form>
         <input type="email" placeholder="Email" [(ngModel)]="email" />
+        <input type="text" placeholder="Username" [(ngModel)]="username" />
         <input type="password" placeholder="Password" [(ngModel)]="password" />
         <button type="button" (click)="signup()">Sign Up</button>
         <button type="button" (click)="togglePanel()">Login</button>
       </form>
     </div>
-  
+    
     <div *ngIf="!isSignUp">
       <h2>Login</h2>
       <form>
