@@ -12,8 +12,9 @@ import { FormsModule } from '@angular/forms';
 export class LoginSignupComponent {
   isSignUp = true;
   email = '';
+  username='';
   password = '';
-
+  
   ngOnInit() {
     this.togglePanel();
   }
@@ -23,7 +24,7 @@ export class LoginSignupComponent {
   }
 
   signup() {
-    console.log('Sign Up:', { email: this.email, password: this.password });
+    console.log('Sign Up:', { email: this.email,username: this.username ,password: this.password });
   }
 
   login() {
