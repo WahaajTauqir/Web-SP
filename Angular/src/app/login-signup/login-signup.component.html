@@ -1,1 +1,22 @@
-<p>login-signup works!</p>
+<div class="login-signup-container">
+    <div *ngIf="isSignUp">
+      <h2>Sign Up</h2>
+      <form>
+        <input type="email" placeholder="Email" [(ngModel)]="email" />
+        <input type="password" placeholder="Password" [(ngModel)]="password" />
+        <button type="button" (click)="signup()">Sign Up</button>
+        <button type="button" (click)="togglePanel()">Login</button>
+      </form>
+    </div>
+  
+    <div *ngIf="!isSignUp">
+      <h2>Login</h2>
+      <form>
+        <input type="email" placeholder="Email" [(ngModel)]="email" />
+        <input type="password" placeholder="Password" [(ngModel)]="password" />
+        <button type="button" (click)="login()">Login</button>
+        <button type="button" (click)="togglePanel()">Sign Up</button>
+      </form>
+    </div>
+  </div>
+  
