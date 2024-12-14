@@ -33,7 +33,7 @@ export class LoginSignupComponent {
   signup() {
     const userData = { email: this.email, username: this.username, password: this.password };
   
-    fetch('http://localhost:5000/signup', {
+    fetch('http://localhost:5000/auth/signup', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(userData),
@@ -45,7 +45,7 @@ export class LoginSignupComponent {
   login() {
     const userData = { email: this.email, password: this.password };
   
-    fetch('http://localhost:5000/login', {
+    fetch('http://localhost:5000/auth/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(userData),
