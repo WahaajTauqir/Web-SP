@@ -1,1 +1,4 @@
-<p>upload works!</p>
+<form id="uploadForm" (ngSubmit)="onSubmit()">
+  <input type="file" name="webglFile" accept=".zip" (change)="onFileChange($event)" required />
+  <button type="submit" [disabled]="!file">Upload</button>
+</form>
