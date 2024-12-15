@@ -8,15 +8,16 @@ const router = express.Router();
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'uploads/'); 
+    cb(null, 'uploads/');
   },
   filename: (req, file, cb) => {
-    cb(null, Date.now() + '-' + file.originalname); 
+    cb(null, Date.now() + '-' + file.originalname);
   },
 });
 
 const upload = multer({ storage });
 
+// Upload route
 router.post('/upload', upload.single('webglFile'), async (req, res) => {
   try {
     if (!req.file) {
@@ -36,8 +37,8 @@ router.post('/upload', upload.single('webglFile'), async (req, res) => {
     fs.unlinkSync(uploadedZipPath);
 
     const webglFile = new WebGLFile({
-      filename: req.file.filename.replace('.zip', ''), 
-      filePath: extractDir, 
+      filename: req.file.filename.replace('.zip', ''),
+      filePath: extractDir,
     });
 
     await webglFile.save();
@@ -49,6 +50,17 @@ router.post('/upload', upload.single('webglFile'), async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: 'Error uploading or extracting file.', error: err.message });
+  }
+});
+
+// Get uploaded files
+router.get('/files', async (req, res) => {
+  try {
+    const files = await WebGLFile.find({}, 'filename');
+    res.status(200).json({ files: files.map(file => file.filename) });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Error fetching files.', error: err.message });
   }
 });
 

@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-// Import routes
 const authRoutes = require('./routes/authRoutes');
 const uploadRoutes = require('./routes/uploadRoutes');
 
@@ -23,7 +22,6 @@ mongoose.connect('mongodb://localhost:27017/loginSignupDB', {
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error('MongoDB connection error:', err));
 
- 
 // Routes
 app.use('/auth', authRoutes);
 app.use('/webgl', uploadRoutes);

@@ -1,20 +1,21 @@
 import { Component } from '@angular/core';
-import { Console } from 'node:console';
-
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-upload',
   standalone: true,
-  imports: [],
+  imports:[FormsModule, CommonModule],
   templateUrl: './upload.component.html',
-  styleUrls: ['./upload.component.css']
+  styleUrls: ['./upload.component.css'],
 })
 export class UploadComponent {
   file: File | null = null;
+  uploadedFiles: string[] = []; // List of uploaded file names
 
   onFileChange(event: any): void {
     const fileInput = event.target.files[0];
     if (fileInput) {
-      this.file = fileInput;
+      this.file = fileInput; // Set the selected file
     }
   }
 
@@ -34,6 +35,8 @@ export class UploadComponent {
         const result = await response.json(); // Read response JSON only once
         if (response.ok) {
           alert(`Success: ${result.message}`);
+          // Add the uploaded file to the list
+          this.uploadedFiles.push(result.file.filename);
         } else {
           alert(`Error: ${result.message || 'Upload failed'}`);
         }

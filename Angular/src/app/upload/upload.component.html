@@ -1,4 +1,25 @@
-<form id="uploadForm" (ngSubmit)="onSubmit()">
-  <input type="file" name="webglFile" accept=".zip" (change)="onFileChange($event)" required />
-  <button type="submit" [disabled]="!file">Upload</button>
-</form>
+<div class="upload-container">
+  <h1 class="title">Upload Your WebGL File</h1>
+  
+  <form id="uploadForm" (ngSubmit)="onSubmit()">
+    <input
+      type="file"
+      name="webglFile"
+      accept=".zip"
+      (change)="onFileChange($event)"
+      required
+    />
+    <!-- Display selected file name -->
+    <div *ngIf="file" class="file-name">
+      <p>Selected file: {{ file.name }}</p>
+    </div>
+    <button type="submit" [disabled]="!file">Upload</button>
+  </form>
+
+  <div *ngIf="uploadedFiles?.length">
+    <h3>Uploaded Files:</h3>
+    <ul>
+      <li *ngFor="let file of uploadedFiles">{{ file }}</li>
+    </ul>
+  </div>
+</div>
