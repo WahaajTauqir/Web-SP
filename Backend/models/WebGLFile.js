@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
 
-const webglFileSchema = new mongoose.Schema({
+const webGLFileSchema = new mongoose.Schema({
   filename: { type: String, required: true },
+  filePath: { type: String, required: true }, // Store path to unzipped folder
   uploadDate: { type: Date, default: Date.now },
 });
 
-module.exports = mongoose.model('WebGLFile', webglFileSchema);
+const WebGLFile = mongoose.model('WebGLFile', webGLFileSchema);
+module.exports = WebGLFile;
