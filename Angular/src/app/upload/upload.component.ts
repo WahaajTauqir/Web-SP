@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Console } from 'node:console';
 
 @Component({
   selector: 'app-upload',
@@ -10,7 +11,6 @@ import { Component } from '@angular/core';
 export class UploadComponent {
   file: File | null = null;
 
-  // This method is triggered when a file is selected
   onFileChange(event: any): void {
     const fileInput = event.target.files[0];
     if (fileInput) {
@@ -18,8 +18,9 @@ export class UploadComponent {
     }
   }
 
-  // This method is triggered when the form is submitted
   async onSubmit() {
+    console.log('onSubmit');
+
     if (this.file) {
       const formData = new FormData();
       formData.append('webglFile', this.file);
@@ -30,8 +31,12 @@ export class UploadComponent {
           body: formData,
         });
 
-        const result = await response.json();
-        alert(result.message);
+        const result = await response.json(); // Read response JSON only once
+        if (response.ok) {
+          alert(`Success: ${result.message}`);
+        } else {
+          alert(`Error: ${result.message || 'Upload failed'}`);
+        }
       } catch (error) {
         console.error('Error uploading file:', error);
         alert('Error uploading file!');
