@@ -8,6 +8,11 @@ import { ProfileComponent } from './profile/profile.component';
 
 export const routes: Routes = [
 
+    {
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full'
+    },
     { 
         path: '',
         component: PlayComponent 
@@ -15,11 +20,6 @@ export const routes: Routes = [
     { 
         path: 'game-play/:id', 
         component: GamePlayScreenComponent
-    },
-    {
-        path: '',
-        redirectTo: 'home',
-        pathMatch: 'full'
     },
     {
         path: 'home',

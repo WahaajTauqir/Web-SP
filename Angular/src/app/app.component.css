@@ -8,9 +8,10 @@
     background: #333;
     color: #fff;
     border-radius: 20px;
-    padding: 10px 20px;
+    padding: 20px 30px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 9999; 
+    min-width: 700px
 }
 
 .floating-navbar .logo {
@@ -24,6 +25,8 @@
     list-style: none;
     margin: 0;
     padding: 0;
+    flex-grow: 1;
+    justify-content: center;
 }
 
 .floating-navbar ul li {
@@ -55,5 +58,20 @@
     padding: 10px 0;
     font-size: 14px;
     z-index: 9999;
+  }
+  .log {
+    background-color: #ff4d4d;
+    color: white;
+    padding: 4px 8px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.3s;
+    margin-left: 10px;
+  }
+  
+  .log:hover {
+    background-color: #ff1a1a;
   }
   
