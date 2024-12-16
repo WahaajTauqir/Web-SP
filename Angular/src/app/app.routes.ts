@@ -4,11 +4,20 @@ import { PlayComponent } from './play/play.component';
 import { GamePlayScreenComponent } from './game-play-screen/game-play-screen.component';
 import { UploadComponent } from './upload/upload.component';
 import { LoginSignupComponent } from './login-signup/login-signup.component';
-import { ProfileComponent } from './profile/profile.component'; 
+import { ProfileComponent } from './profile/profile.component';
 
 export const routes: Routes = [
+
+    { 
+        path: '',
+        component: PlayComponent 
+    },
+    { 
+        path: 'game-play/:id', 
+        component: GamePlayScreenComponent
+    },
     {
-        path:'',
+        path: '',
         redirectTo: 'home',
         pathMatch: 'full'
     },

@@ -1,1 +1,59 @@
-<p>Play works!</p>
+  <div class="body">
+    <div class="popular-games-bar">
+      <div class="row">
+        <span>Popular Games</span>
+      </div>
+    </div>
+    <div class="game-slider">
+      <div
+        class="game-card"
+        *ngFor="let game of popularGames"
+        (click)="onGameSelect(game)"
+      >
+        <img
+          [src]="game.image"
+          alt="{{ game.name }}"
+          class="game-card-image"
+        />
+        <div class="game-name">{{ game.name }}</div>
+      </div>
+    </div>
+    <div class="multiplayer-games-bar">
+      <div class="row">
+        <span>Multiplayer Games</span>
+      </div>
+    </div>
+    <div class="game-slider">
+      <div
+        class="game-card"
+        *ngFor="let game of multiplayerGames"
+        (click)="onGameSelect(game)"
+      >
+        <img
+          [src]="game.image"
+          alt="{{ game.name }}"
+          class="game-card-image"
+        />
+        <div class="game-name">{{ game.name }}</div>
+      </div>
+    </div>
+    <div class="recent-games-bar">
+      <div class="row">
+        <span>Recent Games</span>
+      </div>
+    </div>
+    <div class="game-slider">
+      <div
+        class="game-card"
+        *ngFor="let game of recentGames"
+        (click)="onGameSelect(game)"
+      >
+        <img
+          [src]="game.image"
+          alt="{{ game.name }}"
+          class="game-card-image"
+        />
+        <div class="game-name">{{ game.name }}</div>
+      </div>
+    </div>
+  </div>
