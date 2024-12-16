@@ -1,10 +1,17 @@
-<div class="unity-container">
+<div class="play-container">
+  <h3 *ngIf="currentGame">Now Playing: {{ currentGame.name }}</h3>
+
+  <div *ngIf="currentGame && safeUrl" class="unity-container">
     <iframe
-      src="app-builds-test/JCL_WebGL_V1/index.html"
+      [src]="safeUrl"
       width="100%"
       height="100%"
       frameborder="0"
-      scrolling="no">
-    </iframe>
+      scrolling="no"
+    ></iframe>
   </div>
-  
+
+  <div *ngIf="!currentGame">
+    <p>Loading game...</p>
+  </div>
+</div>

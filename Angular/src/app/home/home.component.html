@@ -1,24 +1,25 @@
 <div class="video">
     <video class="background-video" loop autoplay muted>
-        <source src="https://videos.pexels.com/video-files/5680034/5680034-hd_1920_1080_24fps.mp4" type="video/mp4">
-        Your browser does not support the video tag.
+      <source src="https://videos.pexels.com/video-files/5680034/5680034-hd_1920_1080_24fps.mp4" type="video/mp4">
+      Your browser does not support the video tag.
     </video>
-</div>
-
-<div class="body">
+  </div>
+  
+  <div class="body">
     <div class="popular-games-bar">
-        <div class="row">
-            <span>Popular Games</span>
-        </div>
+      <div class="row">
+        <span>Popular Games</span>
+      </div>
     </div>
     <div class="game-slider">
-        <a routerLink="/game-play-screen" class="game-card"></a>
-        <a routerLink="/game-play-screen" class="game-card"></a>
-        <a routerLink="/game-play-screen" class="game-card"></a>
-        <a routerLink="/game-play-screen" class="game-card"></a>
-        <a routerLink="/game-play-screen" class="game-card"></a>
+      <div
+        class="game-card"
+        *ngFor="let game of games"
+        (click)="onGameSelect(game)"
+      >
+        <img [src]="game.image" alt="{{ game.name }}" class="game-card-image"/>
+        <div class="game-name">{{ game.name }}</div>
       </div>
-</div>
-
-<router-outlet></router-outlet> 
-
+    </div>
+  </div>
+  
