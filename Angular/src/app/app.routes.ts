@@ -5,9 +5,8 @@ import { GamePlayScreenComponent } from './game-play-screen/game-play-screen.com
 import { UploadComponent } from './upload/upload.component';
 import { LoginSignupComponent } from './login-signup/login-signup.component';
 import { ProfileComponent } from './profile/profile.component';
-
+import { AuthGuard } from './auth.guard'; 
 export const routes: Routes = [
-
     {
         path: '',
         redirectTo: 'home',
@@ -19,7 +18,8 @@ export const routes: Routes = [
     },
     { 
         path: 'game-play/:id', 
-        component: GamePlayScreenComponent
+        component: GamePlayScreenComponent,
+        canActivate: [AuthGuard] 
     },
     {
         path: 'home',
