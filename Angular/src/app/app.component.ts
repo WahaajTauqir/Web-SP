@@ -17,14 +17,16 @@ export class AppComponent {
 
   constructor(private authService: AuthService) {}
 
-  ngOnInit(): void {
-    this.authService.getCurrentUser().subscribe(user => {
-      this.username = user?.username || null;
-    });
-  }
+ngOnInit(): void {
+  this.authService.getCurrentUser().subscribe(user => {
+    console.log('Current user in AppComponent:', user); // Debug log
+    this.username = user?.username || null;
+  });
+}
 
   logout(): void {
     this.authService.clearCurrentUser();
+    this.username = null;
     alert('Logged out successfully.');
   }
   

@@ -3,7 +3,6 @@ const bcrypt = require('bcrypt');
 const User = require('../models/User');
 const router = express.Router();
 
-// Signup route
 router.post('/signup', async (req, res) => {
   const { email, username, password } = req.body;
 
@@ -16,13 +15,13 @@ router.post('/signup', async (req, res) => {
   try {
     const user = new User({ email, username, password: hashedPassword });
     await user.save();
-    res.status(201).json({ message: 'User signed up successfully.' });
+    res.status(200).json({ message: 'Signup successful.', user: { email: user.email, username: user.username } });
+
   } catch (err) {
     res.status(500).json({ message: 'Error signing up user.', error: err.message });
   }
 });
 
-// Login route
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
@@ -41,7 +40,8 @@ router.post('/login', async (req, res) => {
       return res.status(401).json({ message: 'Invalid credentials.' });
     }
 
-    res.status(200).json({ message: 'Login successful.' });
+    res.status(200).json({ message: 'Login successful.', user: { email: user.email, username: user.username } });
+
   } catch (err) {
     res.status(500).json({ message: 'Error logging in.', error: err.message });
   }
