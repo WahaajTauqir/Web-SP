@@ -44,34 +44,29 @@
     color: #f39c12;
 }
 
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+}
 
 .footer {
-    position: relative;
-    transform:scale(1.02);
-    top: 20px;
-    bottom: 0;
-    left: 0;
-    width: 100%;
+    transform:scale(1.5);
     background: #333;
     color: #fff;
     text-align: center;
     padding: 10px 0;
-    font-size: 14px;
-    z-index: 9999;
-  }
-  .log {
-    background-color: #ff4d4d;
-    color: white;
-    padding: 4px 8px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 12px;
-    transition: background-color 0.3s;
-    margin-left: 10px;
-  }
-  
-  .log:hover {
-    background-color: #ff1a1a;
-  }
-  
+    font-size: 10px;
+    width: 100%;
+}
