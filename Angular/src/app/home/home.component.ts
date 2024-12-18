@@ -3,6 +3,7 @@ import { GameSelectionService } from '../game-selection.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { AuthService } from '../authlogin.service';
+import { Console } from 'console';
 
 @Component({
   selector: 'app-home',
@@ -26,18 +27,25 @@ export class HomeComponent implements OnInit {
     private authService: AuthService
   ) {}
 
-  ngOnInit(): void {
-    // Subscribe to the current user from AuthService
+  ngOnInit(): void 
+  {
     this.authService.getCurrentUser().subscribe(user => {
       this.currentUser = user;
     });
   }
 
-  onGameSelect(game: any) {
-    if (this.currentUser) {
+  onGameSelect(game: any) 
+  {
+    if (this.currentUser) 
+    {
+      
+      console.log('User email:', this.currentUser.email);
+
       this.gameSelectionService.addGameToPlayedList(game);
-      this.router.navigate(['/game-play', game.id]);
-    } else {
+      this.router.navigate(['/game-play-screen']);
+    } 
+    else 
+    {
       this.router.navigate(['/login-signup']);
     }
   }

@@ -17,7 +17,7 @@ export const routes: Routes = [
         component: PlayComponent 
     },
     { 
-        path: 'game-play/:id', 
+        path: 'game-play', 
         component: GamePlayScreenComponent,
         canActivate: [AuthGuard] 
     },
@@ -31,7 +31,8 @@ export const routes: Routes = [
     },
     {
         path: 'game-play-screen',
-        component: GamePlayScreenComponent
+        component: GamePlayScreenComponent,
+        canActivate: [AuthGuard] 
     },
     {
         path: 'profile',
